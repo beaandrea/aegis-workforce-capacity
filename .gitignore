@@ -1,6 +1,7 @@
 # Ignore all data files
 *.csv
 *.xlsx
+*.db
 
 # Ignore Python cache and environment files
 __pycache__/
