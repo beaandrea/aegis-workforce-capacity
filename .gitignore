@@ -1,0 +1,8 @@
+# Ignore all data files
+*.csv
+*.xlsx
+
+# Ignore Python cache and environment files
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store
