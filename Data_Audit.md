@@ -32,16 +32,27 @@ These issues have been logged below and will dictate the architecture of the Pha
 **Dataset:** Cleaned `payroll_fact` table (SQL Data Warehouse)  
 **Objective:** To execute business-focused exploratory data analysis (EDA) using SQL, testing the competing stakeholder hypotheses (seasonal volume spikes vs. structural understaffing).
 
-### Requirements Gathering (SCAN Framework)
+### Requirements Gathering
 Before writing SQL aggregations, the domain context and North Star metrics were established to guide the analysis:
 * **Stakeholder Goals:** Resolve the executive gridlock. The HR Director suspects company-wide seasonal spikes; the COO suspects localized structural understaffing. The goal is to determine which theory the data supports to guide future hiring strategies.
 * **Columns & Coverage:** Analysis leverages the fully standardized Phase 2 output, specifically isolating `Department_Clean` and `Title Description` against the core financial metrics (`OT Hours` and `Total OT Paid`).
 
 ---
 
-### Insights Log: Aggregates (A) & Notable Segments (N)
+### Insights Log
 
 | SQL Query Focus | Metric & Dimension | The Finding | Relevant Stakeholder | Domain Context (Why it matters) |
 | :--- | :--- | :--- | :--- | :--- |
 | **Aggregates** (Dept Overtime) | Sum of `Total OT Paid` by `Department_Clean` | The **Department of Correction** is the primary anomaly. Despite having the 6th lowest headcount of the top spenders, they rank 3rd in total OT spend ($294M+). | COO / CFO | Proves that Aegis GBS's overtime bleed is not strictly proportional to department size, indicating localized structural understaffing rather than company-wide seasonal spikes. |
 | **Notable Segments** (Role Overtime) | `Avg_OT_Per_Employee` by `Title Description` | **Severe understaffing in skilled facilities roles.** While Correction Officers drive total spend, roles like Senior Stationary Engineer average 1,300+ OT hours/year (65-hr workweeks), identifying the exact roles needing urgent headcount increases. | HR Director / COO | Shifts the hiring strategy from generic headcount to highly targeted skilled-labor acquisition. Furthermore, the mathematical impossibility of cramming 1,300+ OT hours into a short 'busy season' definitively disproves the HR Director's seasonality theory, confirming chronic year-round understaffing. |
+
+### Strategic Recommendations (Insight Categorization)
+
+To ensure these data findings translate into tangible business value, the insights have been categorized based on the levers the executive team can actually pull. 
+
+| Category | The Finding | The Business Lever | Recommendation |
+| :--- | :--- | :--- | :--- |
+| **Contextual** | **Police & Fire dominate total OT spend.** Their massive size naturally drives high overall costs. | *Low Control.* Emergency response volume is dictated by city needs, not internal HR policy. | **No immediate action.** Exclude from emergency headcount restructuring; maintain current baseline budget. |
+| **Directional** | **Correction Dept. OT ratio is anomalous.** They spend $100M+ more on overtime than departments with significantly higher headcounts. | *Medium Control.* Highlights a broken operational model, prompting a shift from "seasonal" to "structural" thinking. | **Investigate localized workflows.** Shift executive focus away from generic company-wide cuts and zero in on Correction Dept. resource allocation. |
+| **Actionable** *(Short-Term)* | **Skilled facilities roles are severely burning out.** Senior Stationary Engineers are averaging 1,300+ OT hours annually (65-hour workweeks). | *High Control.* The HR Director controls job requisitions and targeted hiring campaigns. | **Open job requisitions immediately.** Draft and post hiring targets for 5-10 Senior Stationary Engineers and Plumbers to alleviate extreme individual burnout. |
+| **Actionable** *(Strategic)* | **Overtime premium > Base Salary for trades.** Aegis GBS is paying massive time-and-a-half premiums for year-round work. | *High Control.* The CFO and COO control budget allocation between OT pools and Base Headcount. | **Restructure the budget.** Redirect funds from the bleeding Overtime pool to fund competitive Base Salaries for full-time facilities staff. |
