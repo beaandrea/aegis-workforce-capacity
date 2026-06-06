@@ -16,7 +16,8 @@ This project analyzes a 550,000+ row HRIS extract to resolve this debate, identi
 ## ⚙️ Data Source & Methodology
 *Note: To replicate real-world enterprise scale, data fragmentation, and administrative messiness, this project utilizes a public city-wide payroll dataset, modified to simulate Aegis GBS's legacy HRIS conditions.*
 
-**Tech Stack:** * **Python (Pandas):** Data quality triage, regex string cleaning, and automated pipeline engineering.
+**Tech Stack:** 
+* **Python (Pandas):** Data quality triage, regex string cleaning, and automated pipeline engineering.
 * **SQL (SQLite):** Relational data warehousing, time-series analysis, and financial cost-benefit modeling.
 * **Power BI:** Executive dashboarding and DAX measure creation.
 
