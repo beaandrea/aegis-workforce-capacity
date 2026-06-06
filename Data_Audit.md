@@ -26,6 +26,8 @@ These issues have been logged below and will dictate the architecture of the Pha
 | `raw_payroll` | `Hours/OT Hours` | **Business Logic Anomaly:** Negative values present indicating retroactive HR payroll adjustments. | [Various] | Medium | Yes | Quarantine or filter out `< 0` values when calculating baseline utilization averages. |
 | `raw_payroll` | `OT Hours` | **Critical Outliers:** Impossible values (Max > 3,172 hrs), equating to sustained 100+ hour workweeks. | Top 10+ | Critical | No | Flag as extreme outliers for operations review; implement logical cap in Python pipeline to prevent skewed departmental averages. |
 
+<br>
+
 # Phase 3: Strategic SQL EDA & Business Insights
 
 **Project:** Aegis GBS - Workforce Capacity & Overtime Optimizer  
@@ -56,3 +58,5 @@ To ensure these data findings translate into tangible business value, the insigh
 | **Directional** | **Correction Dept. OT ratio is anomalous.** They spend $100M+ more on overtime than departments with significantly higher headcounts. | *Medium Control.* Highlights a broken operational model, prompting a shift from "seasonal" to "structural" thinking. | **Investigate localized workflows.** Shift executive focus away from generic company-wide cuts and zero in on Correction Dept. resource allocation. |
 | **Actionable** *(Short-Term)* | **Skilled facilities roles are severely burning out.** Senior Stationary Engineers are averaging 1,300+ OT hours annually (65-hour workweeks). | *High Control.* The HR Director controls job requisitions and targeted hiring campaigns. | **Open job requisitions immediately.** Draft and post hiring targets for 5-10 Senior Stationary Engineers and Plumbers to alleviate extreme individual burnout. |
 | **Actionable** *(Strategic)* | **Overtime premium > Base Salary for trades.** Aegis GBS is paying massive time-and-a-half premiums for year-round work. | *High Control.* The CFO and COO control budget allocation between OT pools and Base Headcount. | **Restructure the budget.** Redirect funds from the bleeding Overtime pool to fund competitive Base Salaries for full-time facilities staff. |
+
+> 💡 **Financial Modeling & Cost Neutrality:** Engineered a SQL cost-benefit simulation normalizing legacy union daily rates into true annual salaries. The model proved that Aegis GBS could fund **15 net-new full-time Stationary Engineers** and **20 net-new Electricians** strictly by reallocating the $4.4M currently burned on their overtime premiums, achieving right-sizing with zero net-new budget requests.
