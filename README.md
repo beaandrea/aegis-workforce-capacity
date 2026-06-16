@@ -8,9 +8,9 @@
 **Role:** Operational Data Analyst  
 **Target Audience:** Chief Operating Officer (COO) & HR Director  
 
-Aegis GBS is a multinational shared services center experiencing unpredictable, massive overtime costs. The company is spending $2.53 billion across operations, but operational throughput hasn’t increased. The executive team is gridlocked: The HR Director believes the issue is caused by brief seasonal volume spikes, while the COO suspects chronic understaffing masked by premium overtime pay. 
+Aegis GBS is a multinational shared services center burning **$2.53 billion** in annual overtime costs with no corresponding increase in operational throughput. The executive team is gridlocked: The HR Director believes the issue is caused by brief seasonal volume spikes, while the COO suspects chronic understaffing masked by premium overtime pay. 
 
-This project analyzes a 550,000-row HRIS extract to test these hypotheses, identify exactly which departments are burning out, and build a financial model to prove the ROI of hiring full-time staff rather than paying overtime penalties.
+This project analyzes a 550,000-row HRIS extract to test these hypotheses, identify exactly which departments are burning out, and build a financial model to prove the ROI of hiring full-time staff rather than paying overtime penalties.es.
 
 ---
 
