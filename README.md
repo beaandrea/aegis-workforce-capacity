@@ -3,6 +3,9 @@
 ![Dashboard Screenshot](dashboard.png)
 *Annual overtime volume for stationary engineers exceeds mathematically possible seasonal limits, indicating chronic understaffing.*
 
+## Executive Summary
+Aegis GBS was losing $2.53 billion annually to overtime costs, sparking an executive debate between HR and the COO regarding workforce capacity. I analyzed 550,000 legacy HRIS records using Python and SQL to identify the root cause of this structural waste. I delivered an executive Power BI dashboard that pinpointed the exact cohorts causing the bleed and provided a mathematically backed, cost-neutral restructuring plan.
+
 ## The Business Scenario
 **Company:** Aegis Global Business Services (Aegis GBS)  
 **Role:** Operational Data Analyst  
