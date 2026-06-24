@@ -23,7 +23,6 @@ Initial exploratory data analysis (EDA) using Python (Pandas) revealed legacy sy
 | `raw_payroll` | `Financial Cols` | **Invalid Type:** Loaded as string due to hidden commas and dollar signs causing `NaN` coercion. | 550,000 | High | Yes | Add pipeline step to strip `$` and `,` via Regex before casting to float. |
 | `raw_payroll` | `Hours/OT Hours` | **Business Logic Anomaly:** Negative values present indicating retroactive adjustments. | [Various] | Medium | Yes | Quarantine or filter out `< 0` values when calculating baseline utilization averages. |
 | `raw_payroll` | `OT Hours` | **Critical Outliers:** Impossible values equating to sustained 100+ hour workweeks. | Top 10+ | Critical | No | Applied a logical hard cap of 3,120 OT hours per year (representing a sustained 60-hour work week). Outliers above this threshold were quarantined as system errors to prevent skewing averages. |
-
 <br>
 
 # Phase 2: Strategic SQL EDA & Business Insights
@@ -31,6 +30,7 @@ Initial exploratory data analysis (EDA) using Python (Pandas) revealed legacy sy
 **Project:** Aegis GBS - Workforce Capacity & Overtime Optimizer  
 **Dataset:** Cleaned `payroll_fact` table (SQL Data Warehouse)  
 **Objective:** To execute business-focused EDA using SQL, testing competing stakeholder hypotheses (seasonal volume spikes vs. structural understaffing).
+**Dataset Scope:** Source is an annual payroll snapshot (FY23). Month-by-month timestamps and employee departure dates are not available in this extract. Time-series trending and turnover analysis are explicitly out of scope for this phase.
 
 ### Requirements Gathering
 * **Stakeholder Goals:** Evaluate the HR Director's seasonal spike theory against the COO's structural understaffing theory to guide headcount strategy.
@@ -44,4 +44,4 @@ Initial exploratory data analysis (EDA) using Python (Pandas) revealed legacy sy
 | :--- | :--- | :--- | :--- | :--- |
 | **Aggregates** (Dept Overtime) | Sum of `Total OT Paid` by `Department_Clean` | The **Department of Correction** is an anomaly. With the 6th lowest headcount among top spenders, they rank 3rd in total OT spend ($294M+). | COO / CFO | This points toward localized structural understaffing, though we would need to validate this against shift scheduling data (which we currently lack) to rule out other operational bottlenecks. |
 | **Notable Segments** (Role Overtime) | `Avg_OT_Per_Employee` by `Title Description` | **Severe understaffing in skilled facilities roles.** Senior Stationary Engineers average 1,180+ OT hours/year (approx 65-hr workweeks). | HR Director / COO | Identifies the exact roles needing headcount increases. A 1,180+ annual OT hour volume cannot mathematically fit into a short 'busy season', confirming chronic understaffing. *Note: Initial SQL aggregation returned 1,300+ hours for this cohort. After applying the 3,120-hour hard cap consistently across the Power BI semantic layer, the figure normalized to 1,180+ hours. The Power BI figure is used as the canonical metric throughout this project.* |
-| **Financial Modeling** (Cost Neutrality) | `Wasted_OT_Spend` vs `True_Annual_Salary` | **The OT premium outpaces base salaries.** Normalizing daily union rates into annual salaries reveals $4.4M in pure OT premium penalties for Stationary Engineers alone. | CFO / COO | Proves that Aegis GBS can fund 15 new full-time Stationary Engineers entirely by reallocating the wasted OT penalty. This allows for team right-sizing with zero net-new budget requests. |
+| **Financial Modeling** (Cost Neutrality) | `Wasted_OT_Spend` vs `True_Annual_Salary` | **The OT premium outpaces base salaries.** Normalizing daily union rates into annual salaries reveals $4.4M in pure OT premium penalties for Stationary Engineers alone. | CFO / COO | Proves that Aegis GBS can fund 15 new full-time Stationary Engineers entirely by reallocating the wasted OT penalty. This allows for team right-sizing with zero net-new budget requests. Salary benchmark sourced from NYC civil service pay schedules. A ±15% variance in the assumed daily rate shifts the FTE equivalent to 13–17 hires, which does not materially change the recommendation. |
