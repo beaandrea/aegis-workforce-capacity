@@ -27,23 +27,26 @@ Extracted 550,000+ raw payroll records from a legacy HRIS system with heavy enti
 
 **Finding 2: The Department of Correction is the primary anomaly.** With the 6th-lowest headcount among top OT spenders, the Correction Department ranked 3rd in total overtime spend at **$294M+**. This ratio — high spend, lower headcount — is the fingerprint of localized structural understaffing, not company-wide seasonal pressure.
 
-**Finding 3: The OT premium already funds the fix.** The overtime premium paid to Stationary Engineers alone totals **$4.4M annually** — enough to hire 15 full-time engineers at standard base salary. The company is already spending the money. It's just going to the wrong line item. *Salary benchmark derived from NYC civil service pay schedules; 
-a ±15% variance in the base rate assumption shifts the FTE equivalent 
-between 13–17 hires — not enough to change the recommendation.*
+**Finding 3: The OT premium already funds the fix.** The overtime premium paid to Stationary Engineers alone totals **$4.4M annually** — enough to hire 15 full-time engineers at standard base salary. The company is already spending the money. It's just going to the wrong line item. *Salary benchmark derived from NYC civil service pay schedules; a ±15% variance in the base rate assumption shifts the FTE equivalent between 13–17 hires — not enough to change the recommendation.*
 
-> **Dataset limitation:** Source is an annual FY23 snapshot; 
-> month-level timestamps and departure dates are unavailable in this extract. 
-> Time-series trending and turnover analysis are out of scope. 
-> The structural vs. seasonal conclusion rests on the mathematical 
-> impossibility argument above.
+**Finding 4: The Police and Fire departments' spend is proportional — Correction's is not.** Police ($867M) and Fire ($501M) collectively account for over $1.3B in total OT spend, but their volume scales with headcount — an expected function of operational size. The Department of Correction was flagged precisely because its per-capita OT ratio is anomalous *relative to its size*: high spend, lower headcount, no proportional justification. That asymmetry is the signal. Targeting the biggest absolute spenders would have led to the wrong intervention.
+
+> **Dataset Limitations:** Source is an annual FY23 snapshot; month-level
+> timestamps and departure dates are unavailable in this extract.
+> Time-series trending and turnover analysis are out of scope.
+> The structural vs. seasonal conclusion rests on the mathematical
+> impossibility argument above. The hidden cost of attrition driven
+> by sustained 65-hour workweeks, including replacement hiring and
+> knowledge loss, is flagged as a future scope item pending access
+> to employee termination records.
 
 ## 5. Operational Recommendations
 
-| Priority | Finding | Action |
-|:---|:---|:---|
-| **Directional** | Correction Dept. OT ratio is anomalous — more spend than departments with significantly higher headcounts. | Stop looking for company-wide cuts. Audit resource allocation and shift scheduling specifically within the Correction Dept. |
-| **Short-Term** | Senior Stationary Engineers averaging 1,180+ OT hours/year indicates severe burnout risk in a skilled, hard-to-replace cohort. | Open 5–10 job requisitions for Senior Stationary Engineers immediately. |
-| **Strategic** | The $4.4M OT premium for Stationary Engineers exceeds the cost of 15 permanent FTE salaries. | Reallocate from the overtime budget to base salaries. Right-size the facilities team at zero net-new cost to Finance. |
+| Priority | Finding | Action | Implementation Risk |
+|:---|:---|:---|:---|
+| **Directional** | Correction Dept. OT ratio is anomalous — more spend than departments with significantly higher headcounts. | Stop looking for company-wide cuts. Audit resource allocation and shift scheduling specifically within the Correction Dept. | Requires shift scheduling data not available in the current extract; audit scope to be defined by operations leadership. |
+| **Short-Term** | Senior Stationary Engineers averaging 1,180+ OT hours/year indicates severe burnout risk in a skilled, hard-to-replace cohort. | Open 5–10 job requisitions for Senior Stationary Engineers immediately. | Specialized roles carry 60–90 day hiring cycles; contract or staggered shift coverage is recommended to bridge the gap during recruitment. |
+| **Strategic** | The $4.4M OT premium for Stationary Engineers exceeds the cost of 15 permanent FTE salaries. | Reallocate from the overtime budget to base salaries. Right-size the facilities team at zero net-new cost to Finance. | Phased budget reallocation across 2 fiscal quarters is recommended to avoid operational gaps during the transition period. |
 
 ---
 
